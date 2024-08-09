@@ -33,9 +33,8 @@ const LoginForm = () => {
              
         } catch (error) {
             console.log(error)
-            
-        }
-    
+            setShowAlert(true)
+        }   
     
         setUserFormData({
             email: '',
@@ -43,16 +42,22 @@ const LoginForm = () => {
         });
     }
 
+    return(
+        <form noValidate validated={validated} onSubmit={handleFormSubmit}>
+            <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert}>Oh no!  Something happened to your login credentials!!  Keep trying!  I promise</Alert>
+            <label htmlFor="email">Email</label>
+            <input type="text" placeholder= 'Email' name='email' onChange={handleInputChange} value={userFormData.email} required />
+            if(!email) {
+                res.Alert('Please enter an email')
+            }
+            <label htmlFor="password">Password</label>
+            <input type="text" placeholder="********" name='password' onChange={handleInputChange} value={userFormData.password} required />
+            if(!password) {
+                res.Alert('Please enter a password')
+            }
+            <button type="submit" disabled={!(userFormData.email && userFormData.password)} variant='YAY!  YOU`RE LOGGED IN!'>Login</button>
+        </form>
+    )
 }
+ 
 
-
-
-return(
-    <form>
-        <label htmlFor="email"></label>
-        <input type="text" />
-        <label htmlFor="password"></label>
-        <input type="text" />
-        <button type="submit">Login</button>
-    </form>
-)

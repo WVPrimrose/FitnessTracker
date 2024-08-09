@@ -1,6 +1,4 @@
-// use State? and use custom css or library css?
-// import utils folder
-// make sure the login doesn't refresh when user submits; need to have token and user identify;
+// importing packages
 import { useState } from "react";
 import { Form, Button, Alert } from 'react-bootstrap';
 import { loginUser } from '../utils/API';

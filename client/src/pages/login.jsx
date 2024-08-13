@@ -1,9 +1,8 @@
 // importing packages
 import { useState } from "react";
 import { Form, Button, Alert } from 'react-bootstrap';
-import { loginUser } from '../utils/API';
-import Auth from '../utils/auth';
-
+import { loginUser } from "../../utils/API";
+import Auth from '../../utils/auth'
 // login form function
 const LoginForm = () => {
     const [userFormData, setUserForm] = useState({ email: '', password: ''});
@@ -51,7 +50,7 @@ const LoginForm = () => {
             <label htmlFor="password">Password</label>
             <input type="text" placeholder="********" name='password' onChange={handleInputChange} value={userFormData.password} required />
             if(!password) {
-                res.Alert('Please enter a password')
+                Alert('Please enter a password')
             }
             <button type="submit" disabled={!(userFormData.email && userFormData.password)} variant='YAY!  YOU`RE LOGGED IN!'>Login</button>
         </form>
@@ -59,3 +58,4 @@ const LoginForm = () => {
 }
  
 
+export default LoginForm;

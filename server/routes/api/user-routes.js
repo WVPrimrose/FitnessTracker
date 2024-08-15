@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { createUser, login } = require('../../controllers/user-controllers.js');
+const { createUser, login, getUser } = require('../../controllers/user-controllers.js');
+const { addWorkout, getWorkouts, updateWorkout, deleteWorkout } = require('../../controllers/workoutController.js');
 const auth = require('../../utils/auth.js');
 
 router.post('/register', createUser);
 router.post('/login', login);
-// router.get('/me', auth, getUserDetails);
+router.post('/dashboard', addWorkout);
+router.post('/dashboard', updateWorkout);
+router.get('/dashboard', getWorkouts);
+router.delete('/dashboard', deleteWorkout);
+router.get('/dashboard', getUser);
+
+// router.get('/dashboard', auth, getUserDetails);
 
 module.exports = router;

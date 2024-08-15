@@ -1,7 +1,8 @@
-const Goal = require('../models/Goal');
+const { Goal } = require('../models/');
 
 // Add a new goal
-exports.addGoal = async (req, res) => {
+module.exports ={
+   async addGoal   (req, res)  {
     try {
         const { userId, goalType, target, deadline } = req.body;
         
@@ -18,10 +19,10 @@ exports.addGoal = async (req, res) => {
         console.error(err.message);
         res.status(500).send("Server Error");
     }
-};
+},
 
 // Get goals for a user
-exports.getGoals = async (req, res) => {
+async getGoals  (req, res)  {
     try {
         const goals = await Goal.find({ userId: req.params.userId });
         res.json(goals);
@@ -29,10 +30,10 @@ exports.getGoals = async (req, res) => {
         console.error(err.message);
         res.status(500).send("Server Error");
     }
-};
+},
 
 // Update a goal
-exports.updateGoal = async (req, res) => {
+async updateGoal  (req, res)  {
     try {
         const { goalId } = req.params;
         const updatedGoal = await Goal.findByIdAndUpdate(goalId, req.body, { new: true });
@@ -46,10 +47,10 @@ exports.updateGoal = async (req, res) => {
         console.error(err.message);
         res.status(500).send("Server Error");
     }
-};
+},
 
 // Delete a goal
-exports.deleteGoal = async (req, res) => {
+async deleteGoal   (req, res)  {
     try {
         const { goalId } = req.params;
         const deletedGoal = await Goal.findByIdAndDelete(goalId);
@@ -63,4 +64,5 @@ exports.deleteGoal = async (req, res) => {
         console.error(err.message);
         res.status(500).send("Server Error");
     }
+}
 };

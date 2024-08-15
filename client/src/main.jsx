@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import LoginForm from '../src/components/login';
+import LoginForm from '../src/pages/Login';
 import App from './App'
 const router = createBrowserRouter([
   {
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: '/login',
+        path: '/Login',
         element: <LoginForm />,
       },
     ],

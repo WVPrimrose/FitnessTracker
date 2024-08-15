@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const db = require('./config/connection');
+const db = require('./config/connections');
 const routes = require('./routes');
 
 const app = express();

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Form, Button, Alert } from 'react-bootstrap';
 import { loginUser } from "../../utils/API";
 import Auth from '../../utils/auth'
+import Alert from '@mui/material/Alert';
 // login form function
 const LoginForm = () => {
     const [userFormData, setUserForm] = useState({ email: '', password: ''});
@@ -40,20 +41,18 @@ const LoginForm = () => {
     }
 
     return(
-        <form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
             <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert}>Oh no!  Something happened to your login credentials!!  Keep trying!  I promise</Alert>
-            <label htmlFor="email">Email</label>
-            <input type="text" placeholder= 'Email' name='email' onChange={handleInputChange} value={userFormData.email} required />
-            if(!email) {
-                res.Alert('Please enter an email')
-            }
-            <label htmlFor="password">Password</label>
-            <input type="text" placeholder="********" name='password' onChange={handleInputChange} value={userFormData.password} required />
-            if(!password) {
-                Alert('Please enter a password')
-            }
-            <button type="submit" disabled={!(userFormData.email && userFormData.password)} variant='YAY!  YOU`RE LOGGED IN!'>Login</button>
-        </form>
+            <Label htmlFor="email">Email</Label>
+            <Input type="text" placeholder= 'Email' name='email' onChange={handleInputChange} value={userFormData.email} required />
+            {/* if(!email)  */}
+                <Form.Input.Alert type= "invalid" variant= "filled" severity="warning">Please enter an email</Form.Input.Alert>
+            <Label htmlFor="password">Password</Label>
+            <Input type="text" placeholder="********" name='password' onChange={handleInputChange} value={userFormData.password} required />
+            {/* if(!password)  */}
+                <Form.Input.Alert type= "invalid" variant= "filled" severity="warning">Please enter a password</Form.Input.Alert>
+            <Button type="submit" disabled={!(userFormData.email && userFormData.password)} variant='YAY!  YOU`RE LOGGED IN!'>Login</Button>
+        </Form>
     )
 }
  

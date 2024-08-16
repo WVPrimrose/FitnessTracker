@@ -1,14 +1,19 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Link } from 'react-router-bootstrap';
+import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 // import './Header.css';
 import logo from '../assets/images/Logo.png';
+// import SignUp from '../pages/Signup';
+import Login from '../pages/Login';
 
 const AppNavbar = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
+    <>
     <Navbar bg="success" expand="lg" /* variant="dark"  */>
-      <Container>
+      <Container fluid>
         <Navbar.Brand href="/">
           <img
             src={logo}
@@ -22,52 +27,52 @@ const AppNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <LinkContainer to="/">
-              <Nav.Link>Home</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/dashboard">
-              <Nav.Link>Dashboard</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/login">
-              <Nav.Link>Login</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/signup">
-              <Nav.Link>Signup</Nav.Link>
-            </LinkContainer>
+           
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+            
+            
+              <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+           
+            
+              <Nav.Link onClick={() => setShowModal(true)}>Login</Nav.Link>
+
+              {/*
+              </Nav><Nav.Link onClick={() => setShowModal(true)}>Login</Nav.Link>
+              */}
+           
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /* <header className="header">
-      <div className="logo">
-        <Link to="/">
-          <img src={logo} alt="Fitness Tracker Logo" />
-        </Link>
-      </div>
-      <nav className="navigation">
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/dashboard">Dashboard</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/signup">Sign Up</Link></li>
-        </ul>
-      </nav>
-    </header> */
+
+    <Modal
+      size='lg'
+      show={showModal}
+      onHide={() => setShowModal(false)}
+      aria-labelledby='signup-modal'>
+      {/* tab container to do either signup or login component */}
+    <Tab.Container defaultActiveKey='login'>
+      <Modal.Header closeButton>
+      <Modal.Title id='signup-modal'>
+      <Nav variant='pills'>
+        <Nav.Item>
+          <Nav.Link eventKey='login'>Login</Nav.Link>
+        </Nav.Item>
+        </Nav>
+        </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Tab.Content>
+              <Tab.Pane eventKey='login'>
+                <Login handleModalClose={() => setShowModal(false)} />
+              </Tab.Pane>
+              </Tab.Content>
+          </Modal.Body>
+        </Tab.Container>
+      </Modal>
+      </>
     
   );
-}
+};
 
 export default AppNavbar;

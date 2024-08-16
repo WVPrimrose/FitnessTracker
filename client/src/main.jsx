@@ -1,18 +1,19 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import LoginForm from '../src/pages/Login';
-import App from './App'
+import 'bootstrap/dist/css/bootstrap.min.css'
+// import LoginForm from '../src/pages/Login';
+import App from './App.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <Error />,
-    children: [
+    errorElement: <h1 className='display-2'>Wrong page!</h1>,
+    /* children: [
       {
-        path: '/Login',
-        element: <LoginForm />,
+       index: true,
+        element: <Homepage />,
       },
-    ],
+    ], */
   },
 ]);
 

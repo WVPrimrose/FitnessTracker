@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-// import LoginForm from '../src/pages/Login';
+import Signup from '../src/pages/Signup.jsx';
 import App from './App.jsx'
 const router = createBrowserRouter([
   {
@@ -15,6 +15,10 @@ const router = createBrowserRouter([
       },
     ], */
   },
+  {
+    path: '/signup',
+    element: <Signup/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

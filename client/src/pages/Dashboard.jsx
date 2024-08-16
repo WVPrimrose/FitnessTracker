@@ -25,9 +25,31 @@ const Dashboard = () => {
         <h1>My Dashboard</h1>
         <div>
             <h2>My Current Goals</h2>
+            {/* If we have goals already */}
+            {GoalLog? (
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                // No current goals
+            ) : (
+                <ul></ul>
+            )}
         </div>
         <div>
             <h2>My Current Workout Logs</h2>
+            {/* If we have workout logs already */}
+            {WorkoutLog? (
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                // If we have no workout logs
+            ) : (
+                <ul></ul>
+            )}
         </div>
         <div>
             <Link to ="/GoalLog">

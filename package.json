@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "axios": "^1.7.3"
+    "axios": "^1.7.3",
+    "react-responsive-carousel": "^3.2.23"
   }
 }

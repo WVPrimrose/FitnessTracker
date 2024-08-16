@@ -31,10 +31,10 @@ const HomePage = () => {
         </div>
       </Carousel>
       <Link to="/login">
-        <button>Login</button>
+        <button>Continue Your Journey</button>
       </Link>
       <Link to="/Signup">
-        <button>Sign Up</button>
+        <button>Start Your Journey</button>
       </Link>
     </div>
   );

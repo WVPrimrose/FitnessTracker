@@ -48,32 +48,31 @@ const SignupForm = () => {
     return (
         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
             <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert}>Oh no!  Something happened to your signup credentials!!  Keep trying!  I promise</Alert>
-            <Label htmlFor="username">Username</Label>
-            <Input type="text" placeholder="Username" name="username" onChange={handleInputChange} value={userFormData.username} required />
-            if(!username) {
-                res.Alert('Please enter a username')
-            }
-            <Label htmlFor="email">Email</Label>
-            <Input type="text" placeholder='Email' name='email' onChange={handleInputChange} value={userFormData.email} required />
+            <Form.Label htmlFor="username">Username</Form.Label>
+            <Form.Control type="text" placeholder="Username" name="username" onChange={handleInputChange} value={userFormData.username} required />
+            {/* if(!username)  */}
+                <Form.Input.Alert type= "invalid" variant = "filled" severity= "warning">Please enter a username</Form.Input.Alert>
+            <Form.Label htmlFor="email">Email</Form.Label>
+            <Form.Control type="text" placeholder='Email' name='email' onChange={handleInputChange} value={userFormData.email} required />
             {/* if(!email)  */}
                 <Form.Input.Alert type= "invalid" variant= "filled" severity="warning">Please enter an email</Form.Input.Alert>
-            <Label htmlFor="password">Password</Label>
-            <Input type="text" placeholder="********" name='password' onChange={handleInputChange} value={userFormData.password} required />
+            <Form.Label htmlFor="password">Password</Form.Label>
+            <Form.Control type="text" placeholder="********" name='password' onChange={handleInputChange} value={userFormData.password} required />
             {/* if(!password)  */}
             <Form.Input.Alert type= "invalid" variant= "filled" severity="warning">Please enter a password</Form.Input.Alert>
-            <Label htmlFor="age">Age</Label>
-            <Input type="text" placeholder="Age" name="age" onChange={handleInputChange} value={userFormData.age} required />
+            <Form.Label htmlFor="age">Age</Form.Label>
+            <Form.Control type="text" placeholder="Age" name="age" onChange={handleInputChange} value={userFormData.age} required />
             {/* if(!Age)  */}
             <Form.Input.Alert type= "invalid" variant= "filled" severity="warning">Please enter an age</Form.Input.Alert>
-            <Label htmlFor="weight">Weight</Label>
-            <Input type="text" placeholder="100 lbs" name="weight" onChange={handleInputChange} value={userFormData.weight} required />
+            <Form.Label htmlFor="weight">Weight</Form.Label>
+            <Form.Control type="text" placeholder="100 lbs" name="weight" onChange={handleInputChange} value={userFormData.weight} required />
             {/* if(!weight)  */}
             <Form.Input.Alert type= "invalid" variant= "filled" severity="warning">Please enter a weight</Form.Input.Alert>
-            <Label htmlFor="height">Height</Label>
-            <Input type="text" placeholder="5'0 ft" name="height" onChange={handleInputChange} value={userFormData.height} required />
+            <Form.Label htmlFor="height">Height</Form.Label>
+            <Form.Control type="text" placeholder="5'0 ft" name="height" onChange={handleInputChange} value={userFormData.height} required />
             {/* if(!height)  */}
             <Form.Input.Alert type= "invalid" variant= "filled" severity="warning">Please enter a weight</Form.Input.Alert>
-            <Label htmlFor="gender">Gender</Label>
+            <Form.Label htmlFor="gender">Gender</Form.Label>
             <select name="gender" id="gender">
                 <option value="select">Select Gender</option>
                 <option value="male">Male</option>

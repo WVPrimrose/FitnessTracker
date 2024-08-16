@@ -1,7 +1,9 @@
 // importing packages
 import { useState } from "react";
 import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom';
+import { GoalLog } from '../components/GoalLog';
+import { WorkoutLog } from '../components/WorkoutLog'
 
 const Dashboard = () => {
     const { profileId } = useParams();
@@ -28,10 +30,14 @@ const Dashboard = () => {
             <h2>My Current Workout Logs</h2>
         </div>
         <div>
+            <Link to ="/GoalLog">
             <button><h2>Create a New Goal</h2></button>
+            </Link>
         </div>
         <div>
+            <Link to ="/WorkoutLog">
             <button><h2>Create a New Workout Log</h2></button>
+            </Link>
         </div>
         </>
     )

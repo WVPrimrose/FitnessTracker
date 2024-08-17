@@ -4,7 +4,7 @@ const { createUser, login, getUser } = require('../../controllers/user-controlle
 const { addWorkout, getWorkouts, updateWorkout, deleteWorkout } = require('../../controllers/workoutController.js');
 const auth = require('../../utils/auth.js');
 
-router.post('/register', createUser);
+router.post('/signup', createUser);
 router.post('/login', login);
 router.post('/dashboard', addWorkout);
 router.post('/dashboard', updateWorkout);

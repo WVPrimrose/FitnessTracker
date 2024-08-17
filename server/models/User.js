@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema({
     min: 0 
   },
   height: {
-    type: Number,
+    type: String,
     min: 0
   },
   preferences: {

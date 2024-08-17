@@ -14,6 +14,14 @@ const SignupForm = () => {
         console.log(name, value)
         setUserFormData({ ...userFormData, [name]: value })
     }
+
+    const handleClickShowPassword = () => {
+        setValues({
+            ...values,
+            showPassword: !values.showPassword,
+        });
+    };
+    
     // handles the form submit
     const handleFormSubmit = async (event) => {
         event.preventDefault();

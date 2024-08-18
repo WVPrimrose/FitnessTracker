@@ -7,21 +7,16 @@ import { createUser } from "../../utils/API";
 const SignupForm = () => {
     const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', age: '', weight: '', height: '', gender: '' });
     const [validated] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         console.log(name, value)
         setUserFormData({ ...userFormData, [name]: value })
     }
-
-    const handleClickShowPassword = () => {
-        setValues({
-            ...values,
-            showPassword: !values.showPassword,
-        });
-    };
     
+    // handles to hide password
+    const [showPassword, setShowPassword] = useState(false);
+
     // handles the form submit
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -63,7 +58,7 @@ const SignupForm = () => {
             <Form.Control type="text" placeholder='Email' name='email' onChange={handleInputChange} value={userFormData.email} required />
             {/* if(!email)  */}
             <Form.Label htmlFor="password">Password</Form.Label>
-            <Form.Control type="text" placeholder="********" name='password' onChange={handleInputChange} value={userFormData.password} required />
+            <Form.Control type="password" placeholder="********" name='password' onChange={handleInputChange} value={userFormData.password} required />
             {/* if(!password)  */}
             <Form.Label htmlFor="age">Age</Form.Label>
             <Form.Control type="text" placeholder="Age" name="age" onChange={handleInputChange} value={userFormData.age} required />

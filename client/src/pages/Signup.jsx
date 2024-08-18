@@ -7,6 +7,7 @@ import { createUser } from "../../utils/API";
 const SignupForm = () => {
     const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', age: '', weight: '', height: '', gender: '' });
     const [validated] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -14,9 +15,6 @@ const SignupForm = () => {
         setUserFormData({ ...userFormData, [name]: value })
     }
     
-    // handles to hide password
-    const [showPassword, setShowPassword] = useState(false);
-
     // handles the form submit
     const handleFormSubmit = async (event) => {
         event.preventDefault();
